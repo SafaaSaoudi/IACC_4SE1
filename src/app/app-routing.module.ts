@@ -9,9 +9,10 @@ import { DetailsResidenceComponent } from './details-residence/details-residence
 const routes: Routes = [
   {path:'', redirectTo:"home", pathMatch:"full"},
   {path:'home', component: HomeComponent},
-  {path:'residences', component:ResidencesComponent},
-  {path:'addResidence', component:AddResidenceComponent},
-  {path: 'residence/:x', component:DetailsResidenceComponent},
+  {path:'residences', component:ResidencesComponent,
+  children:[{path:'add', component:AddResidenceComponent},
+  {path: 'details/:x/:y', component:DetailsResidenceComponent}]
+  }, 
   {path:'**', component:NotFoundComponent}
 ];
 
